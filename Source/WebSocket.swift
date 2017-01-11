@@ -318,10 +318,6 @@ open class WebSocket : NSObject, StreamDelegate {
     private func initStreamsWithData(_ data: Data, _ port: Int) {
         //higher level API we will cut over to at some point
         //NSStream.getStreamsToHostWithName(url.host, port: url.port.integerValue, inputStream: &inputStream, outputStream: &outputStream)
-
-        // Disconnect and clean up any existing streams before setting up a new pair
-        disconnectStream(nil)
-
         var readStream: Unmanaged<CFReadStream>?
         var writeStream: Unmanaged<CFWriteStream>?
         let h = url.host! as NSString
